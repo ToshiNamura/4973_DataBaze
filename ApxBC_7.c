@@ -1,3 +1,5 @@
+// Организация хранения данных в файлах (массивы)
+// Вариант: 7
 #include <stdio.h>
 
 int main(
@@ -5,7 +7,7 @@ int main(
 	const char* argv[])
 {
 
-	printf("Hi world!!!\n");
+	
 
 	return 0;
 }

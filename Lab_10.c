@@ -1,5 +1,5 @@
-// Приближенное вычисление площади фигуры методом Монте - Карло
-// Вариант: 21
+// Approximate calculation of the area of the figure by the Monte Carlo method
+// Variant: 21
 #include <stdio.h>
 
 int main(

@@ -1,5 +1,5 @@
-// Хранение данных в файлах
-// Вариант: 21
+// Storing data in files
+// Variant: 21
 #include <stdio.h>
 
 int main(

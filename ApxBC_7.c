@@ -1,5 +1,5 @@
-// Организация хранения данных в файлах (массивы)
-// Вариант: 7
+// Organization of data storage in files (arrays)
+// Variant: 7
 #include <stdio.h>
 
 int main(

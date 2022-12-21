@@ -1,5 +1,5 @@
-// Организация хранения данных в файлах (списки строк)
-// Вариант: 7
+// Organization of data storage in files (lists of strings)
+// Variant: 7
 #include <stdio.h>
 
 int main(

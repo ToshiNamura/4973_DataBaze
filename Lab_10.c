@@ -1,4 +1,4 @@
-// Approximate calculation of the area of the figure by the Monte Carlo method
+﻿// Approximate calculation of the area of the figure by the Monte Carlo method
 // Variant: 21
 #include <stdio.h>
 

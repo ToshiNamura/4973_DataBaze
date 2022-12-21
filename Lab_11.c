@@ -1,4 +1,4 @@
-// Storing data in files
+﻿// Storing data in files
 // Variant: 21
 #include <stdio.h>
 

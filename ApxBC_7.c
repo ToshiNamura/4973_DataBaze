@@ -4,51 +4,31 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <io.h>
+#include <time.h>
 #include <memory.h>
 
-typedef float Type;
-const size_t ElementCount = 128;
-const size_t ElementSize = sizeof(Type);
-Type* Buffer;
-FILE* fPointer;
-const char* FileName = "Resource.bin";
-int InitBufferError = -2006;
-int OpenFileError = -2008;
-
-int lc_OpenFile(const char* mode)
+FILE* FileEdit(const char* Name)
 {
-	fPointer = fopen(FileName, mode);
-	if (fPointer == NULL)
-	{
-		printf("[Error] Файл не был открыт.\n");
-		return OpenFileError;
-	}
-	return NULL;
+	FILE* Temp = fopen(Name, "wb");
+	if (Temp == NULL)
+		printf("[FileEdit] Ошибка открытия файла \n");
+	return Temp;
 }
 
-int lc_WriteFile()
+FILE* FileOpened(const char* Name)
 {
-	int Result = lc_OpenFile("wb");
-	if (Result != NULL)
-		return Result;
-	else {
-		fwrite(Buffer, ElementSize, ElementCount, fPointer);
-		fclose(fPointer);
-	}
-	return Result;
+	FILE* Temp = fopen(Name, "rb");
+	if (Temp == NULL)
+		printf("[FileOpened] Ошибка открытия файла \n");
+	return Temp;
 }
 
-int lc_ReadFile()
+FLOAT FlipingBits(FLOAT Number)
 {
-	int Result = lc_OpenFile("rb");
-	if (Result != NULL)
-		return Result;
-	else {
-		fread(Buffer, ElementSize, ElementCount, fPointer);
-		fclose(fPointer);
-	}
-	return Result;
+	
 }
+
+#define BufferSize 64
 
 int main(
 	int argc,
@@ -56,30 +36,37 @@ int main(
 {
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
-	int CallResult = NULL;
+	
+	srand((UINT)time(0));
 
-	if ((Buffer = (Type*)malloc(ElementCount * ElementSize)) == NULL)
-		return InitBufferError;
-	for (int i = 0; i < ElementCount; i++)
-		Buffer[i] = (rand() % 100) / (Type)100;
-	
-	CallResult = lc_WriteFile();
-	if (CallResult != NULL)
-	{
-		printf("[Func] lc_WriteFile функция вернула ошибку!\n");
-		return CallResult;
-	}
-	
-	CallResult = lc_ReadFile();
-	if (CallResult != NULL)
-	{
-		printf("[Func] lc_ReadFile функция вернула ошибку!\n");
-		return CallResult;
-	}
+	FLOAT* Buffer;
+	FILE* fPointer;
+	// Инициализация буфера
+	if ((Buffer = (FLOAT*)malloc(BufferSize * sizeof(FLOAT))) == NULL)
+		return -12;
 	else
-		for (size_t i = 0; i < ElementCount; i++)
-			printf("%.4f ", Buffer[i]);
+		for (size_t i = 0; i < BufferSize; i++)
+			Buffer[i] = (FLOAT)(rand()) / (FLOAT)(RAND_MAX);
+	// Открытие для чтения данных
+	if ((fPointer = FileEdit("Resource.bin")) == NULL)
+		return -27;
+	else
+	{
+		fwrite(Buffer, sizeof(FLOAT), BufferSize, fPointer);
+		fclose(fPointer);
+	}
+	// Открытие для чтения данных
+	if ((fPointer = FileOpened("Resource.bin")) == NULL)
+		return -57;
+	else
+	{
+		fread(Buffer, sizeof(FLOAT), BufferSize, fPointer);
+		printf("[Содержимое файла '%s']\n", "Resource.bin");
+		for (size_t i = 0; i < BufferSize; i++)
+			printf("[HEX: %x] = %f\n", *(UINT*)&(Buffer[i]), Buffer[i]);
+		fclose(fPointer);
+	}
 
 	free(Buffer);
-	return NULL;
+	return 0;
 }

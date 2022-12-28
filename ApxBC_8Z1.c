@@ -1,4 +1,4 @@
-// Organization of data storage in files (lists of strings)
+п»ї// Organization of data storage in files (lists of strings)
 // Variant: 7
 // Zadanir: 1
 #include <Windows.h>
@@ -47,18 +47,18 @@ int main(
 	FILE* f_out = NULL;
 	char* strbuf = NULL;
 	int nstr = 0;
-	printf("[Введите 0 для выхода из программы]\n");
-	printf("[Начальные данные]\n");
-	printf("[Указатель файла записи] адрес: %p, значение: %p;\n", &f_out, f_out);
-	printf("[Буффер чтения/запяси] адрес: %p, значение: %p;\n", &strbuf, strbuf);
+	printf("[Р’РІРµРґРёС‚Рµ 0 РґР»СЏ РІС‹С…РѕРґР° РёР· РїСЂРѕРіСЂР°РјРјС‹]\n");
+	printf("[РќР°С‡Р°Р»СЊРЅС‹Рµ РґР°РЅРЅС‹Рµ]\n");
+	printf("[РЈРєР°Р·Р°С‚РµР»СЊ С„Р°Р№Р»Р° Р·Р°РїРёСЃРё] Р°РґСЂРµСЃ: %p, Р·РЅР°С‡РµРЅРёРµ: %p;\n", &f_out, f_out);
+	printf("[Р‘СѓС„С„РµСЂ С‡С‚РµРЅРёСЏ/Р·Р°РїСЏСЃРё] Р°РґСЂРµСЃ: %p, Р·РЅР°С‡РµРЅРёРµ: %p;\n", &strbuf, strbuf);
 	do {
 		do {
-			printf("[Введите количество строк]: ");
+			printf("[Р’РІРµРґРёС‚Рµ РєРѕР»РёС‡РµСЃС‚РІРѕ СЃС‚СЂРѕРє]: ");
 			scanf("%d", &nstr);
 			if (nstr == 0)
 				exit(0);
 			if (nstr < 0)
-				printf("[Не верный ввод числа]\n");
+				printf("[РќРµ РІРµСЂРЅС‹Р№ РІРІРѕРґ С‡РёСЃР»Р°]\n");
 			else
 				break;
 		} while (1);
@@ -82,9 +82,9 @@ int main(
 			}
 			free(strbuf);
 		}
-		printf("[Результируюшие данные]\n");
-		printf("[Указатель файла записи] адрес: %p, значение: %p;\n", &f_out, f_out);
-		printf("[Буффер чтения/запяси] адрес: %p, значение: %p;\n", &strbuf, strbuf);
+		printf("[Р РµР·СѓР»СЊС‚РёСЂСѓСЋС€РёРµ РґР°РЅРЅС‹Рµ]\n");
+		printf("[РЈРєР°Р·Р°С‚РµР»СЊ С„Р°Р№Р»Р° Р·Р°РїРёСЃРё] Р°РґСЂРµСЃ: %p, Р·РЅР°С‡РµРЅРёРµ: %p;\n", &f_out, f_out);
+		printf("[Р‘СѓС„С„РµСЂ С‡С‚РµРЅРёСЏ/Р·Р°РїСЏСЃРё] Р°РґСЂРµСЃ: %p, Р·РЅР°С‡РµРЅРёРµ: %p;\n", &strbuf, strbuf);
 		fclose(f_out);
 	} while (1);
 	return 0;

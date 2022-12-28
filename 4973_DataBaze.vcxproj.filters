@@ -7,7 +7,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="ApxBC_7.c">
+    <ClCompile Include="ApxBC_7Z1.c">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="ApxBC_8Z2.c">
@@ -20,6 +20,9 @@
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="ApxBC_8Z1.c">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="ApxBC_7Z2.c">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>

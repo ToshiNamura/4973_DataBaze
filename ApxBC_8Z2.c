@@ -1,5 +1,6 @@
 ﻿// Organization of data storage in files (lists of strings)
 // Variant: 7
+// Zadanir: 2
 #include <Windows.h>
 #include <stdlib.h> 
 #include <stdio.h>

@@ -8,16 +8,14 @@
 
 float Reverse(float var)
 {
-	unsigned int tmp = *((unsigned int*)(&var));
-	unsigned int N = (sizeof(float) * 8);
-	unsigned int t = 0;
-	unsigned int ret = 0;
-	for (unsigned int i = 0; i < N / 2; ++i) {
-		t |= (tmp & (1 << i)) << (N - i - 1);
-		ret |= ((tmp & (1 << (N - i - 1))) >> (N - i - 1)) << i;
-		ret |= t;
+	char* gen = (char*)(&var);
+	for (int i = 0; i < sizeof(float) / 2; i++)
+	{
+		char tmp = gen[i];
+		gen[i] = gen[sizeof(float) - i - 1];
+		gen[sizeof(float) - i - 1] = tmp;
 	}
-	return *((float*)(&ret));
+	return var;
 }
 
 int main(
